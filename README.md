@@ -33,7 +33,7 @@ The files of interest include the following:
 
 3. `shellfuncts.h` - this .h file is the header file that is used to declare the functions that are within `shellfuncts.c`
 
-I am proud to say that this is the first ever shell and big project that I have done using Linux. I hope you enjoy!
+I am proud to say that this is the first ever shell project that I have done using Linux. I hope you enjoy!
 
 ------------------
 
