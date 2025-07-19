@@ -14,23 +14,24 @@
 
 The purpose of this project was to get introduced to creating a shell in Linux that executes the following commands within its terminal:
 
-`create <name>` - creates new files in the current directory
+1. `create <name>` - creates new files in the current directory
 
-`update <name> <number> <text>` - update said files with a line of text a certain number of times
+2. `update <name> <number> <text>` - update said files with a line of text a certain number of times
 
-`list <name>` - lists out the contents of the file and throws an error if the file does not exist
+3. `list <name>` - lists out the contents of the file and throws an error if the file does not exist
 
-`dir` - lists out what is within the current directory (which is to include the newly created files)
+4. `dir` - lists out what is within the current directory (which is to include the newly created files)
 
-`halt` - terminates the shell
+5. `halt` - terminates the shell
 
 
 The files of interest include the following:
-`myshell.c` - this .c file houses the main function that operates the command loop that is written out in `shellfuncts.c`
 
-`shellfuncts.c` - this .c file contains all of the code logic that makes the shell work; I would say that this is where a lot of the meat for this project is
+1. `myshell.c` - this .c file houses the main function that operates the command loop that is written out in `shellfuncts.c`
 
-`shellfuncts.h` - this .h file is the header file that is used to declare the functions that are within `shellfuncts.c`
+2. `shellfuncts.c` - this .c file contains all of the code logic that makes the shell work; I would say that this is where a lot of the meat for this project is
+
+3. `shellfuncts.h` - this .h file is the header file that is used to declare the functions that are within `shellfuncts.c`
 
 I am proud to say that this is the first ever shell and big project that I have done using Linux. I hope you enjoy!
 
@@ -40,17 +41,17 @@ I am proud to say that this is the first ever shell and big project that I have 
 
 This code starts off by including all of the required c libraries to make the overall functionality work. It also includes the `shellfuncts.h` file accordingly. I then defined the required constants and buffers accordingly. The following are what the actual functions do themselves:
 
-`trim_whitespace` - This helper function trims the whitespace from the end of a string for parsing, making command matching easier.
+1. `trim_whitespace` - This helper function trims the whitespace from the end of a string for parsing, making command matching easier.
 
-`cmd_loop` - This is the main command loop for the shell; it is what makes the shell interactive. It starts by prompting the user with the `nutshell> `, reading the input using `fgets()` and handling end-of-file signals accordingly, parsing and deciding using `sscanif` what the user wants to do, forking a child process for valid commands, delegating the child process with a command to execute, and then the parent process waits for the child to finish its task (unless it is a background command). This cycle is repeated until the program is terminated.
+2. `cmd_loop` - This is the main command loop for the shell; it is what makes the shell interactive. It starts by prompting the user with the `nutshell> `, reading the input using `fgets()` and handling end-of-file signals accordingly, parsing and deciding using `sscanif` what the user wants to do, forking a child process for valid commands, delegating the child process with a command to execute, and then the parent process waits for the child to finish its task (unless it is a background command). This cycle is repeated until the program is terminated.
 
-`cmd_create` - This function tries to first see if the file exists. It then creates a new file if that is not the case.
+3. `cmd_create` - This function tries to first see if the file exists. It then creates a new file if that is not the case.
 
-`cmd_update` - This function first opens the file, then it writes text in a certain amount of times, and afterwards closes. If there is trouble opening a certain file to append it, it throws an error.
+4. `cmd_update` - This function first opens the file, then it writes text in a certain amount of times, and afterwards closes. If there is trouble opening a certain file to append it, it throws an error.
 
-`cmd_list` - This function opens the file in read mode and runs `/bin/cat` and `cat` commands. If the file does not exist, it throws an error.
+5. `cmd_list` - This function opens the file in read mode and runs `/bin/cat` and `cat` commands. If the file does not exist, it throws an error.
 
-`cmd_dir` - This function is essentially executing the `/bin/ls/` and `ls` commands to open the directory.
+6. `cmd_dir` - This function is essentially executing the `/bin/ls/` and `ls` commands to open the directory.
 
 
 ------------------
