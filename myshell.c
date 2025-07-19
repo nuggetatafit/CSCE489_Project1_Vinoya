@@ -1,19 +1,20 @@
 /*************************************************************************************
- * myshell - student code for Project 1 of CSCE 489 
- *
+ * myshell - Nate Vinoya's code for Project 1 of CSCE 489 
  *************************************************************************************/
 
+// standard c libraries
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <errno.h>
+// the header file for shell functions
 #include "shellfuncts.h"
-
-int main(int argv, const char *argc[]) {
-//	(void) argv; // Make compile warnings go away - be sure to delete this line if you use the param
-	(void) argc; // Make compile warnings go away - be sure to delete this line if you use the param
-
-	// If they just ran myshell, say Hello World--if they included a parameter, speak Australian
-	if (argv == 1)
-		hello(1);
-	else
-		hello(0);
-
+	
+int main() { // load configuration files
+	cmd_loop(); // run command loop
+	return EXIT_SUCCESS; // return success
 }
